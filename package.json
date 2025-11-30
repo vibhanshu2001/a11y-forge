@@ -1,6 +1,6 @@
 {
   "name": "a11y-forge",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Tool to fix accessibility issues in a website",
   "main": "dist/index.js",
   "bin": {
@@ -15,7 +15,23 @@
     "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "accessibility",
+    "a11y",
+    "wcag",
+    "ai",
+    "automation",
+    "fixer",
+    "remediation",
+    "openai",
+    "gpt",
+    "cli",
+    "puppeteer",
+    "react",
+    "vue",
+    "html",
+    "testing"
+  ],
   "author": "Vibhanshu Garg",
   "license": "ISC",
   "type": "commonjs",
