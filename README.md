@@ -9,7 +9,7 @@
 
 ---
 
-<img width="1523" height="931" alt="Image" src="https://github.com/user-attachments/assets/13824513-18dc-4023-a8ee-10929805f158" />
+![a11y-forge demo](https://github.com/user-attachments/assets/13824513-18dc-4023-a8ee-10929805f158)
 
 ## Why a11y-forge?
 
