@@ -1,0 +1,40 @@
+{
+  "name": "a11y-forge",
+  "version": "1.0.0",
+  "description": "Tool to fix accessibility issues in a website",
+  "main": "dist/index.js",
+  "bin": {
+    "a11y-forge": "./dist/cli/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Vibhanshu Garg",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@types/cheerio": "^0.22.35",
+    "@types/diff": "^7.0.2",
+    "@types/glob": "^8.1.0",
+    "@types/jscodeshift": "^17.3.0",
+    "@types/node": "^24.10.1",
+    "@types/source-map": "^0.5.2",
+    "chalk": "^5.6.2",
+    "cheerio": "^1.1.2",
+    "commander": "^14.0.2",
+    "diff": "^8.0.2",
+    "dotenv": "^17.2.3",
+    "glob": "^13.0.0",
+    "jscodeshift": "^17.3.0",
+    "openai": "^6.9.1",
+    "puppeteer": "^24.31.0",
+    "source-map": "^0.7.6",
+    "stacktrace-parser": "^0.1.11",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3",
+    "vue-template-compiler": "^2.7.16",
+    "wcag-contrast": "^3.0.0"
+  }
+}
