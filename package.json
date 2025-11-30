@@ -4,7 +4,7 @@
   "description": "Tool to fix accessibility issues in a website",
   "main": "dist/index.js",
   "bin": {
-    "a11y-forge": "./dist/cli/index.js"
+    "a11y-forge": "dist/cli/index.js"
   },
   "files": [
     "dist",
