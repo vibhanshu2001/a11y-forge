@@ -1,91 +1,93 @@
-# a11y-forge: AI-Powered Accessibility Remediation Engine
+# a11y-forge
 
-**a11y-forge** is a powerful CLI tool that automates the detection and remediation of web accessibility issues. It combines headless browser scanning with Generative AI to not only find WCAG violations but also generate intelligent, context-aware fixes.
+[![npm version](https://img.shields.io/npm/v/a11y-forge.svg?style=flat-square)](https://www.npmjs.com/package/a11y-forge)
+[![License: ISC](https://img.shields.io/badge/License-ISC-yellow.svg?style=flat-square)](https://opensource.org/licenses/ISC)
 
-## 🚀 Key Features
+**The AI-powered accessibility remediation engine for modern web applications.**
 
-- **🤖 AI-Powered Remediation**: Uses OpenAI (GPT-4o-mini) to generate accurate alt text, form labels, and validate semantic tag conversions.
-- **✅ WCAG 2.1/2.2 Compliance**: Detects a wide range of issues including missing landmarks, color contrast, interactive roles, and heading structures.
-- **⚡ Smart Optimization**: Implements request batching, deduplication, and persistent caching to reduce AI costs by up to 90% and speed up execution.
-- **🛡️ Auto-Healing**: Automatically validates applied fixes and "heals" any syntax errors or invalid HTML introduced during the process.
-- **🔄 Universal Patching**: Supports patching for React (`.tsx`, `.jsx`), Vue (`.vue`), and static HTML files.
-- **📂 Local & Remote Scanning**: Scan local build directories (`./dist`) or live URLs.
+`a11y-forge` goes beyond simple linting. It combines headless browser scanning with Generative AI to **detect**, **analyze**, and **automatically fix** accessibility violations in your code.
+
+---
+
+## Why a11y-forge?
+
+Web accessibility (a11y) is critical, but manual remediation is time-consuming and prone to error. Traditional tools like `axe-core` are great at *finding* problems, but they leave the *fixing* to you.
+
+**a11y-forge changes that.**
+
+Instead of just telling you "Image missing alt text," `a11y-forge` analyzes the image and the surrounding context to generate descriptive, meaningful alt text. Instead of flagging "Div used as button," it intelligently converts it to a semantic `<button>` or adds the necessary ARIA roles and keyboard handlers.
+
+It's like having an accessibility expert pair-program with you, 24/7.
+
+## ✨ Key Features
+
+- **🤖 AI-Driven Fixes**: Leverages OpenAI (GPT-4o) to generate context-aware remediations for complex issues.
+- **🛡️ Auto-Healing**: Automatically validates every fix. If a fix introduces invalid HTML, the engine "heals" it before applying.
+- **⚡ Smart Caching**: Implements aggressive caching and request batching to minimize AI costs and latency.
+- **🔄 Universal Support**: Works with React (`.tsx`, `.jsx`), Vue (`.vue`), and static HTML.
+- **� Local & Remote**: Scan your local build folder (`./dist`) or audit any live URL.
 
 ## 📦 Installation
+
+Install globally via npm:
 
 ```bash
 npm install -g a11y-forge
 ```
 
-Or run directly with `npx`:
+Or run it directly with `npx`:
 
 ```bash
 npx a11y-forge scan <target>
 ```
 
-## ⚙️ Configuration
+## 🚀 Usage
 
-To enable AI features, you need to provide an OpenAI API Key. You can set this globally using the `config` command:
-
-```bash
-a11y-forge config set OPENAI_API_KEY sk-your-api-key-here
-```
-
-Alternatively, you can use a `.env` file in your project root:
-```bash
-OPENAI_API_KEY=sk-your-api-key-here
-```
-
-> **Note**: Without an API key, the tool will run in "Mock Mode", generating placeholder text for fixes.
-
-## 🛠️ Usage
-
-### 1. Scan and Auto-Fix Local Files
-Scan a local directory (e.g., `./dist` or `./build`) and apply fixes directly to your source code.
+### 1. Scan and Fix Local Projects
+Perfect for CI/CD pipelines or local development. Scan your build directory and apply fixes to your source code.
 
 ```bash
 a11y-forge scan ./dist --apply
 ```
 
-### 2. Scan a Live URL
-Scan a website and generate a git-compatible patch file.
+### 2. Audit a Live Website
+Generate a comprehensive patch file for a remote URL.
 
 ```bash
 a11y-forge scan https://example.com --output fixes.patch
 ```
 
-### 3. CI/CD Integration
-Run in CI mode to fail the build if severe accessibility issues are found.
-
-```bash
-a11y-forge scan ./dist --ci
-```
-
-### 4. Dry Run / Verification
-Generate fixes and verify them without modifying files.
+### 3. Dry Run
+Preview the changes without modifying any files.
 
 ```bash
 a11y-forge scan ./dist --verify
 ```
 
-## 📝 CLI Options
+## ⚙️ Configuration
 
-| Option | Description |
-|--------|-------------|
-| `--fix` | Enable fix generation (Default: true) |
-| `--no-fix` | Disable fix generation (Scan only) |
-| `--apply` | Apply fixes directly to source files (Local only) |
-| `--output <file>` | Save fixes to a patch file |
-| `--verify` | Verify fixes without applying (Dry Run) |
-| `--ci` | Exit with error code 1 if severe issues are found |
+To unlock the full power of AI remediation, set your OpenAI API key.
 
-## 🏗️ Architecture
+**Option 1: Global Config (Recommended)**
+```bash
+a11y-forge config set OPENAI_API_KEY sk-your-api-key
+```
 
-- **Scanner**: Uses Puppeteer to render pages and capture the Accessibility Tree.
-- **Detector**: Analyzes the AX Tree against WCAG rules to identify violations.
-- **Fixer**: Batches issues and queries OpenAI to generate semantic fixes.
-- **Patcher**: Locates source code using fuzzy matching and AST analysis to apply changes safely.
+**Option 2: Environment Variable**
+Create a `.env` file in your project root:
+```env
+OPENAI_API_KEY=sk-your-api-key
+```
+
+> **Note**: Without an API key, `a11y-forge` runs in "Deterministic Mode," applying only rule-based fixes.
+
+## 🏗️ How It Works
+
+1.  **Scan**: Puppeteer renders the page and captures the Accessibility Tree.
+2.  **Detect**: The engine identifies WCAG 2.1/2.2 violations.
+3.  **Resolve**: Issues are batched and sent to the AI model for semantic analysis.
+4.  **Patch**: Fixes are applied to the source code using AST transformation and fuzzy matching.
 
 ## 📄 License
 
-ISC
+ISC © [Vibhanshu Garg](https://github.com/vibhanshu2001)
