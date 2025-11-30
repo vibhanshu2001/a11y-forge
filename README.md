@@ -9,6 +9,8 @@
 
 ---
 
+<img width="1523" height="931" alt="Image" src="https://github.com/user-attachments/assets/13824513-18dc-4023-a8ee-10929805f158" />
+
 ## Why a11y-forge?
 
 Web accessibility (a11y) is critical, but manual remediation is time-consuming and prone to error. Traditional tools like `axe-core` are great at *finding* problems, but they leave the *fixing* to you.
